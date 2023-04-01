@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spotify Song Recommender</title>
+</head>
+<body>
+    <h1>Spotify Song Recommender</h1>
+    <h2>Recommended songs based on "{{ song_name }}"</h2>
+    <ul>
+        {% for song in recommendations %}
+        <li>{{ song }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
