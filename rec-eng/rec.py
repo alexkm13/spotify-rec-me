@@ -32,10 +32,10 @@ nn = NearestNeighbors(metric='cosine', algorithm='brute')
 nn.fit(df.drop(['id', 'name', 'artist'], axis=1))
 
 # get recommendations for a song
-song_id = 'YOUR_SONG_ID'
-song_features = sp.audio_features(song_id)[0]
-recommendations = nn.kneighbors([song_features])[1][0]
+def get_recommendations(song):
+    song_id = pull_id.get_id(song) 
+    song_features = sp.audio_features(song_id)[0]
+    return nn.kneighbors([song_features])[1][0]
 
-# display recommended songs
-for i in range(1, 6):
-    print(f"{i}. {df.iloc[recommendations[i]][['name', 'artist']].values[0]}")
+
+#  print(f"{i}. {df.iloc[recommendations[i]][['name', 'artist']].values[0]}")
